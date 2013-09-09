@@ -1,9 +1,9 @@
 # You want latexmk to *always* run, because make does not have all the info.
-.PHONY: wr_tc.pdf
+.PHONY: JACoW2009A4.tex
 #
 # # First rule should always be the default "all" rule, so both "make all" and
 # # "make" will invoke it.
-all: wr_tc.pdf
+	all: JACoW2009A4.tex
 #
 # # CUSTOM BUILD RULES
 #
@@ -26,8 +26,8 @@ all: wr_tc.pdf
 #  # -interactive=nonstopmode keeps the pdflatex backend from stopping at a
 # missing file reference and interactively asking you for an alternative.
 #
-wr_tc.pdf: wr_tc.tex
-	latexmk -pdf -f -pdflatex="pdflatex -interactive=nonstopmode" -use-make wr_tc.tex
+wr_tc.pdf: JACoW2009A4.tex
+	latexmk -pdf -f -pdflatex="pdflatex -interactive=nonstopmode" -use-make JACoW2009A4.tex
 
 clean:
 	latexmk -CA
