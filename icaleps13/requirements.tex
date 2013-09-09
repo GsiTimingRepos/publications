@@ -1,0 +1,22 @@
+\section{REQUIREMENTS}
+
+
+\textbf{From "THE NEW WHITE RABBIT BASED TIMING SYSTEM FOR THE FAIR
+FACILITY" paper it has to be reviewed}
+
+The requirements of the GMT have been described in the detailed specifications.
+About 2000 FECs and other equipment are connected to the GMT, a distance of up to
+2 km between the nodes has to be covered. In most of the cases a precision of 1
+μs is sufficient. However, some equipment like kicker magnets for transferring bunches 
+between machines require nanosecond precision.
+Besides supporting control system features like equipment triggering and synchronization, 
+parallel execution, varying machine cycle times and scalability, other key features are 
+the following: \textit{Robustness} - At most one timing event per year may be
+lost. \textit{Determinism} - Time critical information from must be distributed to the nodes with 
+an upper bound latency. \textit{Redundancy} - Core components
+of the GMT must be implemented with redundant equipment. \textit{Availability} - The GMT must be capable of 
+distributing events for testing and commissioning equipment, even when the accelerator does not produce 
+beam. \textit{Plan B Execution} - The GMT must react on external signals like interlock signals or malfunctioning 
+equipment by executing predefined alternatives in the schedule. Other important features include 
+integration of the existing machines and control system as well as interfaces to
+many other subsystems like the interlock system and BuTiS.
