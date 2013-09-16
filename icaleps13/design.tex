@@ -63,10 +63,55 @@ Cesar
 
 \subsubsection{Timing Receiver Nodes}
 
-Stephan/Wesley
-% form factors
-% common design = SoC
-% eca, tlu
-% etherbone slave ==> 
-% uniform access from pcie/vme/usb/ethernet
+
+\textbf{Form Factors}
+
+\textbf{SCU}
+The biggest number of timing receivers will be build in the formfactor
+of the SCU (Scalable Control Unit).
+It is planned to run around 1200 units in FAIR.
+The SCU is a combination of a carrier board with an Arria II FPGA and a
+COMExpress board running
+linux. The communication between FPGA and COMExpress board is done via
+PCIe. The carrier board is
+equipped with the circuitry for White Rabbit, a DDR3 memory for support
+of a soft cpu
+and a parallel flash for text memory. Two SFP slots are available, one
+is used for White Rabbit, one for future
+use. Also available are several IOs as LEMO, EIA232, USB and Ethernet.
+
+The SCU controls up to 12 slave cards via the SCU bus. For a smaller
+number of slaves a backplane with
+only 5 slots exists. So two SCUs can be run in one 19 inch crate.
+The main use cases in FAIR for the SCU is the control of the ACU
+(Adaptive Control Unit) for ramped power suplies,
+control of radio frequency devices with FIB (FPGA Interface Board) and
+the control of kicker modules
+via MIL extension board.
+
+\textbf{PEXARRIA}
+Wesley
+
+\textbf{EXPLODER}
+Wesley
+
+\textbf{VME}
+Cesar
+
+
+\textbf{common design SoC}
+Wesley
+
+
+\textbf{eca, tlu}
+Wesley
+
+
+\textbf{etherbone slave}
+Wesley
+
+
+\textbf{uniform access from pcie,vme,usb,ethernet}
+Wesley
+
 

@@ -1,3 +1,79 @@
 \section{DEVELOPMENT AND IMPLEMENTATION PLAN}
-\textit{Dietrich/Cesar}
+
+The new challenge for building the FAIR timing system is
+twofold: combination of already consolidate technologies like WR and 
+Etherbone, and to create a reliable system capable of scaling
+to more than 2000 nodes. 
+
+The development strategy is based on the creation of a relative simple GMT 
+with minimal features and then increase the complexity and functionality, going
+through iterations that will result in a running system.
+
+\subsection{Proton Linac Source}
+
+Proton Linac Source In summer 2013 GSI will deliver a complete control 
+system for testing the source of the proton linac, that will 
+later serve as an additional injector
+into the existing synchrotron SIS18 at GSI/FAIR. At this
+stage, the timing system will only be a simple pulse generator 
+for a handful of FECs. However, this will be the first
+productive timing system that uses prototypes of the FAIR
+timing system, such as a timing master, a timing network
+and timing receivers.
+
+
+\subsection{CRYRING}
+
+CRYRING The next step will be a timing system for
+the CRYRING, a small synchrotron and storage ring lo-
+cated at the Manne Siegbahn Laboratory in Stockholm
+[11]. This ring will be moved to GSI, where it will be set-
+up next to the Experimental Storage Ring (ESR). One of
+the motivations behind the CRYRING project is its explicit
+usage for FAIR development tests. Although the operation
+of the ring will commence in stand-alone mode, it covers
+nearly all relevant aspects of an accelerator facility. Thus,
+it presents an ideal test ground for new sub-systems of the
+accelerator control system such as the timing system. Here,
+new development and features for FAIR can be tested with-
+out the overhead required for routine operation. It is esti-
+mated that between 20 and 50 FECs have to be connected
+to a first timing system. Although limited in features, de-
+ployed components for the CRYRING timing system will
+be close to the final ones for FAIR.
+
+\subsection{New Timing System for SIS18 and ESR}
+
+New Timing System for SIS18 and ESR The timing systems for 
+the proton linac source or CRYRING have
+been either very small in scale our operated under experimental conditions. 
+Replacing the existing timing system
+at the synchrotron SIS18 and the storage ring ESR is a important 
+milestone, since the ongoing experimental program
+requires the timing system to work reliably in routine operation 24/7. 
+The old timing system, which is based on an extension of the MIL-STD-1553 bus, 
+needs to be replaced by the new GMT: A common solution for the timing system 
+for all ring machines should be used to guarantee and efficient transfer of 
+ion bunches from one ring machine to the next.
+ 
+\subsection{FAIR Timing System}
+Final Timing System All of the previous instances of
+the new GMT had different aspects: Proof of principle at
+the proton linac source, prototyping and development of
+final solutions at the CRYRING and reliability of routine
+operation at the SIS18 and the ESR. One important step to-
+wards the final timing system is the combination of all these
+aspects. This is eased, since the timing master and the first
+two layers of switches will be physically located in an existing 
+building close to the SIS18. This allows to set up first
+components of the timing master for CRYRING, SIS18 and
+ESR already. By this, the timing master, its infrastructure
+and its interfaces will be continuously developed, improved
+and tested at its final location over a few years.
+Another important step is to address the issue of scaling
+the new GMT to the size required for the final FAIR facility. 
+As it is planned to purchase the equipment not just
+before FAIR machine commissioning but over a period of
+several years, scalability can be addressed and tested in several steps. 
+One option would be to use test areas in buildings of the existing facility.
 
