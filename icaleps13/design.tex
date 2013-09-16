@@ -63,55 +63,139 @@ Cesar
 
 \subsubsection{Timing Receiver Nodes}
 
+FAIR requires multiple form factor variants of timing receiver nodes.
+In order to reduce the maintenance effort,
+all of our different FPGAs utilize a common system on chip (SoC) design.
+This design is centered around the Wishbone bus system,
+which combines the standard timing receiver functionality with 
+the form factor specific bus interfaces.
+The standard functionality included in every timing receiver
+consists of White Rabbit, an Event-Condition-Action (ECA) scheduler,
+and a timestamp latch unit (TLU).
+The form factor specific interfaces fall into three categories.
+First, master interfaces for controlling the timing receiver,
+such as PCIe, VME, USB, and Etherbone.
+Second, slave interfaces for controlling off-chip resources,
+such as DDR3, SRAM, flash, daughter boards, and displays.
+Third, raw IO interfaces suitable for capturing signals to 
+timestamps using the TLU or generating high precision timing
+signals using the ECA.
+These last interfaces are generally LEMO, LVDS, or HDMI connectors.
 
-\textbf{Form Factors}
+The ECA unit is a gateware component for producing control
+signals at preprogrammed times.
+The idea is to split high-level command events,
+which should be carried out by multiple devices at a given time,
+from the actions an individual timing receiver must take.
+To this end, 
+after attaching a timing receiver to a controlled device,
+one programs the ECA's condition table.
+This rules in this table 
+specify which command events from the data master
+require action by the timing receiver.
+Furthermore, the rules may include a time offset to compensate 
+for local delays due to the attached table length or delays
+inherent to the controlled device.
+
+As a concrete example, 
+one could program the ECA to respond to ramp events
+by outputting new set values to the magnet's power supply.
+When the data master broadcasts a new field strength to apply in 200us,
+all the timing receivers process this request.
+Those timing receivers which control magnets on the ring
+recognize this event requires their action.
+They calculate when they must power their magnets to achieve
+the 200us target and schedule an action for that time.
+When the time arrives, the ECA executes the required action,
+accurate to 8ns.
+In the future,
+we intend to leverage Altera's PLL phase shifting technology 
+to reach 100ps accuracy.
+
+Similar to the ECA unit,
+every timing receiver includes a TLU unit.
+For each input connected to the TLU, 
+there is a timestamp queue.
+The rising or falling edge of a signal on the input
+causes an absolute timestamp to be recorded in the 
+respective queue.
+Currently these timestamps are only accurate to 8ns,
+though we intend to improve this when time permits.
+
+Although different form factors provide different physical control interfaces, 
+we have unified all of them to a single C library interface.
+A user of this library does not need to care how the timing 
+receiver is attached to his computer.
+He must only specify an appropriate address;
+for example,
+dev/wbm0 for PCIe or VME,
+dev/ttyUSB0 for USB,
+udp/192.168.100.100 for Etherbone.
+Using this library, all devices in the timing receiver
+can be automatically discovered using the self-describing bus standard.
+Thus, one does not need to know the particular SoC address layout
+for a given timing receiver.
+Instead, one simply locates the component to control,
+complains if it is missing,
+and then proceeds to access it via the C interface to Wishbone.
+This means, for example, 
+that we can program the flash of all our form factors using the same 
+software tool regardless of the physical interface.
+
+Although the master interfaces for each form factor differ,
+they all include a network connection in order to run White Rabbit.
+It is possible to control the Wishbone bus of a timing receiver over
+the network using the Etherbone protocol.
+As with all other master interfaces to the SoC,
+access proceeds via the same library calls.
+Etherbone is simply a serial version of the Wishbone bus protocol.
+We use this same protocol in the USB master interface.
+Due to this network connectivity,
+it is theoretically possible (though perhaps unwise)
+to broadcast a firmware update to all timing receivers simultaneously.
 
 \textbf{SCU}
-The biggest number of timing receivers will be build in the formfactor
-of the SCU (Scalable Control Unit).
+Most timing receivers will be built in the 
+Scalable Control Unit (SCU) form factor.
 It is planned to run around 1200 units in FAIR.
 The SCU is a combination of a carrier board with an Arria II FPGA and a
-COMExpress board running
-linux. The communication between FPGA and COMExpress board is done via
-PCIe. The carrier board is
-equipped with the circuitry for White Rabbit, a DDR3 memory for support
-of a soft cpu
-and a parallel flash for text memory. Two SFP slots are available, one
-is used for White Rabbit, one for future
-use. Also available are several IOs as LEMO, EIA232, USB and Ethernet.
-
-The SCU controls up to 12 slave cards via the SCU bus. For a smaller
-number of slaves a backplane with
-only 5 slots exists. So two SCUs can be run in one 19 inch crate.
+COMExpress board running Linux.
+The communication between FPGA and COMExpress board is done via PCIe.
+The carrier board connects the COMExpress Atom processor with
+an Ethernet port, two USB ports, and a serial console.
+The onboard FPGA is connected to two SFP slots, two LEMOs, DDR3, 
+parallel flash, an LCD, and a serial console.
+An SCU controls up to 12 slave cards via the SCU bus
+and can connect to an optional daughter board for additional IOs.
+%For a smaller number of slaves a backplane with only 5 slots exists. 
+%So two SCUs can be run in one 19 inch crate.
 The main use cases in FAIR for the SCU is the control of the ACU
 (Adaptive Control Unit) for ramped power suplies,
 control of radio frequency devices with FIB (FPGA Interface Board) and
-the control of kicker modules
-via MIL extension board.
+the control of kicker modules via MIL extension board.
 
-\textbf{PEXARRIA}
-Wesley
+\textbf{PEXARIA}
+The pexaria5 is a 4-lane PCIe card intended to be used in a standard PC.
+It is based on the newer Arria V FPGA platform.
+It sports up to four SFP cages, a 26-pin trigger bus interface,
+a USB port, and an internal LCD.
+In the future it will also host a daughter board with external IO
+ports.
+It is foreseen to be used in data acquistion for experiments
+and beam instrumentation.
+The data master might be implemented using this form factor.
 
 \textbf{EXPLODER}
-Wesley
+The exploder is a portable timing receiver with many IO ports.
+It is a two-planed, enclosed, hand-sized device 
+hosting an Arria II FPGA and four SFPs.
+The top plane contains the application-specific IOs,
+such as LCD display, LEMOs, LVDS, NIM, trigger bus, knobs, etc.
+The only additional master interface it provides is USB.
+It is intended to be used in any situation where a hosted device,
+such as the VME/PEXARIA/SCU would not be available.
 
 \textbf{VME}
 Cesar
-
-
-\textbf{common design SoC}
-Wesley
-
-
-\textbf{eca, tlu}
-Wesley
-
-
-\textbf{etherbone slave}
-Wesley
-
-
-\textbf{uniform access from pcie,vme,usb,ethernet}
-Wesley
 
 
