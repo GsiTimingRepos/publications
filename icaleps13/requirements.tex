@@ -2,9 +2,8 @@
 
 In  about  four years,  first  beam will  be  injected  into the  FAIR
 accelerator complex. By then,  the General Machine Timing system
-must support about 2000  Front-End Controllers and other timing
-receivers. The main tasks of the GMT are distribution of  timing
-events, clocks  and timestamps.  Timing events  synchronize actions of
+must support about 2000  TRNs. The main tasks of the GMT are distribution 
+of  timing events, clocks  and timestamps.  Timing events  synchronize actions of
 the accelerator in hard real-time on a level of about 1 ns, even if
 components are a few kilometers apart. Clock and timestamps
 distribution, inherently  provided by White  Rabbit PTP, will  be used
@@ -13,10 +12,10 @@ facility. The GMT must support true parallel operation of in different
 parts of the  machine, as well as fast  switching between various beam
 types (called multiplexing) for  each machine.  Typical cycle times in
 the machine range from 20ms at  the present UNILAC up to several hours
-in storage rings.
+in storage rings~\cite{gmt}.
 
 The GMT  is linked to other  systems.  It must react  with upper bound
-latency  on  external  signals  like interlock  signals  by  executing
+latency  on  external  signals  like interlock  signals ~\cite{interlock}  by  executing
 predefined alternatives in the  schedule. All systems connected to the
 timing  system  depend on  it's  high  availability.  Distribution  of
 events, clocks and timestamps  must be guaranteed for commissioning and
