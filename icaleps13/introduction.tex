@@ -1,4 +1,28 @@
 \section{INTRODUCTION}
 
+The GMT triggers and synchronizes accelerator equipment, 
+timed according to the accelerator cycles [4]. Cycle lengths range 
+from 20 ms (present UNILAC), several seconds (synchrotrons SIS18 
+and SIS100/300) to several hours (storage rings). 
+
+An important concept of the accelerator control system 
+is the one of the so called beam production chain, which describes the production of a beam
+from an ion source through the accelerators to a target. Properties of such a beam production 
+chain include the ion type (from protons to uranium), energy, intensity, focus
+and emittance at the final destination and other parameters. This is mapped to the GMT, which 
+has an integral view on the tightly synchronized accelerators and beam transfer
+sections. The GMT must take into account the execution of several beam production 
+chains in the accelerator complex at the same time. For each part of the machine, switching 
+between different beam production chains will be possible between cycles, which implies a 
+high degree of true parallel operation.
+
+For all components, set values or ramp data for the different beam production chains are 
+preloaded in the Time Receiver Nodes (TRNs). This is done by the control system
+via its general purpose network. The task of the GMT is to trigger and synchronize the 
+TRNs in real-time via timing events, which carry additional information like machine ID
+or event numbers. After parameterization of the facility by the top and middle layer of 
+the control system, it is finally the GMT which autonomously operates the accelerator 
+complex in real-time.
+
 
 
