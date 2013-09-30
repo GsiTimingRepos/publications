@@ -1,30 +1,12 @@
 \section{REQUIREMENTS}
 
-
-%The requirements of the GMT have been described in the detailed specifications.
-%About 2000 FECs and other equipment are connected to the GMT, a distance of up to
-%2 km between the nodes has to be covered. In most of the cases a precision of 1
-%μs is sufficient. However, some equipment like kicker magnets for transferring bunches 
-%between machines require nanosecond precision.
-%Besides supporting control system features like equipment triggering and synchronization, 
-%parallel execution, varying machine cycle times and scalability, other key features are 
-%the following: \textit{Robustness} - At most one timing event per year may be
-%lost. \textit{Determinism} - Time critical information from must be distributed to the nodes with 
-%an upper bound latency. \textit{Redundancy} - Core components
-%of the GMT must be implemented with redundant equipment. \textit{Availability} - The GMT must be capable of 
-%distributing events for testing and commissioning equipment, even when the accelerator does not produce 
-%beam. \textit{Plan B Execution} - The GMT must react on external signals like interlock signals or malfunctioning 
-%equipment by executing predefined alternatives in the schedule. Other important features include 
-%integration of the existing machines and control system as well as interfaces to
-%many other subsystems like the interlock system and BuTiS.
-
 In  about  four years,  first  beam will  be  injected  into the  FAIR
-accelerator complex. By then,  the General Machine Timing (GMT) system
-must support about 2000  Front-End Controllers (FECs) and other timing
-receivers.   The main  tasks of  the  GMT are  distribution of  timing
+accelerator complex. By then,  the General Machine Timing system
+must support about 2000  Front-End Controllers and other timing
+receivers. The main tasks of the GMT are distribution of  timing
 events, clocks  and timestamps.  Timing events  synchronize actions of
-the accelerator  in hard real-time on a  level of about 1  ns, even if
-components  are   a  few  kilometers  apart.    Clock  and  timestamps
+the accelerator in hard real-time on a level of about 1 ns, even if
+components are a few kilometers apart. Clock and timestamps
 distribution, inherently  provided by White  Rabbit PTP, will  be used
 for  correlating  data  acquired  at distinct  places  throughout  the
 facility. The GMT must support true parallel operation of in different
@@ -51,4 +33,3 @@ actions. Moreover, a connection to the GMT allows for time stamping of
 data in case of globally triggered DAQ systems, fan-out of time stamps
 for  free running  DAQ systems  and finally  provides  distribution of
 precise synchronous clock signals.
-

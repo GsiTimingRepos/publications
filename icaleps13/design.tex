@@ -1,34 +1,39 @@
 \section{DESIGN}
 
-Introduction to the chapter
+\textit{write intro}
 
 \subsection{White Rabbit}
 
-White Rabbit (WR~\cite{wr}) is a project which aims at creating
-an Ethernet-based network with low-latency, deterministic
-packet delivery and network-wide, transparent, high-accuracy
-timing distribution. The White Rabbit Network (WRN) is
-based on existing standards: Ethernet (IEEE 802.3~\cite{internet}),
+White Rabbit (WR~\cite{wr}) is a protocol developed to
+synchronize nodes in a packet-based network with sub-ns accuracy. WR is based 
+on existing standards: Ethernet (IEEE 802.3~\cite{internet}),
 Synchronous Ethernet (SyncE~\cite{sync}) and PTP~\cite{ptp}. 
+A WR network offers low-latency, deterministic packet delivery and network-wide, 
+transparent, high-accuracy timing distribution. 
 
-A WRN consists of White Rabbit Nodes (nodes) and White
-Rabbit Switches (switches) interconnected by fiber optics links. 
-A node is considered the source and destination of information sent 
-over the WRN. The information distributed over a WRN includes:
-
+The information distributed over a WRN includes:
 \begin{itemize}
-    \item Timing - frequency and International Atomic Time.
+    \item Timing - frequency and time.
     \item Data - Ethernet traffic between nodes.
 \end{itemize}
 
-\textit{to be finished}
+A WRN consists of White Rabbit Nodes (nodes) and White
+Rabbit Switches (switches) interconnected by fiber optics links. 
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics*[scale=0.5]{fig/icaleps_networ.eps}
+   \caption{WR Timing Network}
+   \label{network}
+\end{figure}
+
 
 \subsection{Timing System}
 
 \subsubsection{Data Master}
+\textit{ it has to be rewrited by Mathias}
 
 The Data Master for the FAIR accelerator deals with various different tasks.
-
 The first step is to take machine commands from the LHC Software
 Architecture (LSA) and convert these into sequence programs,
 depicting beam production chains.
@@ -40,6 +45,7 @@ and their execution times. These are scheduled and handed over to a dispatcher
 to be sent over the timing network. The sequence programs will communicate to
 resolve dependencies in beam production chains and are able to take external
 signals and interlocks into account.
+
 
 The Data Master possesses a high end CPU running an
 OS for easy interfacing to the control system, compatibility to 
@@ -53,24 +59,22 @@ The Data Master itself subdivided into three parts:
 Its CPU is fed by the LHC Software
 Architecture (LSA) with machine parameters derived from
 physical requirements for beam production chains. These
-parameters are converted into sequence programs (Fig. 1),
+parameters are converted into sequence programs,
 compiled and uploaded to the FPGA of the Data master.
 
 \textit{FPGA - SoftCPU Cluster} \\
 These programs are run in
 parallel on SoftCPU macros residing in the FPGA. They
-deal with sending out machine events paired with an exe-
-cution time to WR nodes, reacting to interlocks and mutual
-synchronisation. At the moment, 32 of these Soft CPUs are
-foreseen in the Data Master, able to carry out 32 tasks full
-parallel with IO service times of less than 50ns.
+deal with sending out machine events paired with an execution time to WR nodes, 
+reacting to interlocks and mutual synchronisation. At the moment, 32 of these Soft CPUs are
+foreseen in the Data Master, able to carry out 32 tasks full parallel with IO service times of less than 50ns.
 
 \textit{FPGA - Event Concentrator} \\
 An event concentrator macro in the data master will act as a bridge to the WR
 network. Its primary functions are aggregation of events
 into Ethernet Frames and to schedule transmission of these
 event messages over the timing network so they arrive on
-time at the respective nodes.
+time at the respective nodes. 
 
 The first version of the timing master was a single handwritten sequence program
 with variable parameters, able to control the \textit{Saclay Ion source?????}.
@@ -90,15 +94,23 @@ be used to control the future FAIR facility.
 
 \begin{figure}[htb]
    \centering
-   \includegraphics*[scale=0.4]{fig/fatima7.eps}
+   \includegraphics*[scale=0.33]{fig/fatima7.eps}
    \caption{Mathias...}
    \label{fatima}
 \end{figure}
 
 
 \subsubsection{Timing Master}
-
-Cesar
+Timing is distributed in the WRN from a switch called Timing Master (TM) to all
+the other TRNs/WR switches in the network. All the devices in the WRN lock their frequency 
+and adjust their local clocks to that of the TM. The TM is basically a WR Switch
+configured as Master Clock in the PTP protocol. Uses 10 Mhz and PPS signal from
+a GPS for synthonization and the UTC Time for the synchronization of the
+network. NTP protocol can also be used for getting the time.
+The Fig.~\ref{network} shows that the TM is on top of the network
+connected to the first layer of WR switches. In a WR test network deployed in
+GSI, a WR Switch v3 is already synchronizing prototype TRNs scattered in the
+campus.  
 
 \subsubsection{Management Master}
 
@@ -124,15 +136,12 @@ WR network manager to anticipate networks problems and maintain the reliability
 and robustness required for the timing system.
 
 
-\subsubsection{Timing Network}
-
-Cesar
-
 \subsubsection{Timing Receiver Nodes}
 
 FAIR requires multiple form factor variants of timing receiver nodes.
 In order to reduce the maintenance effort,
-all of our different FPGAs utilize a common system on chip (SoC) design.
+all of our different FPGAs utilize a common system on chip (SoC)
+design Fig.~\ref{soc}.
 This design is centered around the Wishbone bus system,
 which combines the standard timing receiver functionality with 
 the form factor specific bus interfaces.
@@ -148,6 +157,14 @@ Third, raw IO interfaces suitable for capturing signals to
 timestamps using the TLU or generating high precision timing
 signals using the ECA.
 These last interfaces are generally LEMO, LVDS, or HDMI connectors.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics*[scale=0.5]{fig/icaleps_soc.eps}
+   \caption{TRN Common System on Chip Design}
+   \label{soc}
+\end{figure}
+
 
 The ECA unit is a gateware component for producing control
 signals at preprogrammed times.
@@ -234,8 +251,6 @@ The onboard FPGA is connected to two SFP slots, two LEMOs, DDR3,
 parallel flash, an LCD, and a serial console.
 An SCU controls up to 12 slave cards via the SCU bus
 and can connect to an optional daughter board for additional IOs.
-%For a smaller number of slaves a backplane with only 5 slots exists. 
-%So two SCUs can be run in one 19 inch crate.
 The main use cases in FAIR for the SCU is the control of the ACU
 (Adaptive Control Unit) for ramped power suplies,
 control of radio frequency devices with FIB (FPGA Interface Board) and
@@ -262,7 +277,21 @@ The only additional master interface it provides is USB.
 It is intended to be used in any situation where a hosted device,
 such as the VME/PEXARIA/SCU would not be available.
 
-\textbf{VME}
-Cesar
+\textbf{VETAR}
+The vetar is a VMEbus IEEE-1014 card intended to be hosted in VME crates.
+It also based on the Arria II FPGA and is endowed with one SFP cage, SRAM, LCD
+display, EEPROM memory and USB interface. LVDS and lemo I/Os are available on the main 
+board or on the extension board with additional HDMI connector.
 
+\subsubsection{Timing Network}
+
+The Timing Network interconnects the above described components of the Timing
+System using WR switches. A stable and continuous synchronization of all the
+TRNs with an appropriate accuracy and reliable and deterministic distribution 
+of time events are the key requirements. 
+Both timing and data resilience against network failures is achieved 
+using redundant connections. Lower layer protocols
+stablish a spanning tree topology setting ports connected to
+cyclic paths to block/passive state. Upper-bound delivery latency of timing events 
+from the DM to TRNs is guaranteed using a QoS tagging [] of the traffic and Cut-through [] switching.
 
