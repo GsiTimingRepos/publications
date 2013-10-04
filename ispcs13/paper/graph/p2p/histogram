@@ -1,0 +1,41 @@
+#!/usr/bin/gnuplot
+reset
+unset colorbox
+#set key outside right top vertical Right noreverse enhanced autotitles nobox
+set  key autotitles enhanced noreverse nobox
+#set style data histogram 
+set style fill transparent solid 0.4  noborder
+#set bars fullwidth
+set title "plot with filledcurve [options]" 
+set boxwidth 1 relative
+#set grid
+#unset border
+#set datafile separator ","
+set autoscale
+set xtics rotate out
+set ytics format " " 
+set xtics auto
+#set format x "%2.0t"
+set xtics autofreq
+#plot "F1p2p_100000.txt" using 2:xticlabels(1) with histogram , \
+#    "F1p2p_200000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_300000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_400000.txt" using 2:xticlabels(1) with histogram, "F1p2p_500001.txt" using 2:xticlabels(1) with histogram
+
+#plot "F1p2p_500001.txt" using 2:xticlabels(1) smooth freq  with boxes title "5 WR Switches",\
+#     "F1p2p_400000.txt" using 2:xticlabels(1) smooth freq  with boxes title "4 WR Switches", \
+#     "F1p2p_300000.txt" using 2:xticlabels(1) smooth freq  with boxes title "3 WR Switches", \
+#     "F1p2p_200000.txt" using 2:xticlabels(1) smooth freq  with boxes title "2 WR Switches", \
+#     "F1p2p_100000.txt" using 2:xticlabels(1) smooth freq  with boxes title "1 WR Switch"
+
+plot "F1p2p_500001.txt"   smooth freq  with boxes title "5 WR Switches",\
+     "F1p2p_400000.txt"   smooth freq  with boxes title "4 WR Switches", \
+     "F1p2p_300000.txt"   smooth freq  with boxes title "3 WR Switches", \
+     "F1p2p_200000.txt"   smooth freq  with boxes title "2 WR Switches", \
+     "F1p2p_100000.txt"   smooth freq  with boxes title "1 WR Switch"
+    
+
+
+
+
+pause -1

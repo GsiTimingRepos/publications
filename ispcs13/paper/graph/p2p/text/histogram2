@@ -1,0 +1,71 @@
+#!/usr/bin/gnuplot
+system "rm p2p.png"
+reset
+unset colorbox
+#set key outside left top vertical Left noreverse enhanced autotitles nobox
+set  key at 7,59 left autotitles enhanced noreverse nobox font "Times-Roman,20" spacing 1.6
+set xtics font "Times-Roman, 20" 
+set ytics font "Times-Roman, 16" 
+set y2tics font "Times-Roman, 16" 
+#### PNG output
+set terminal pngcairo size 1500,800 enhanced font 'Verdana,10'
+set output 'p2p.png'
+#### Latex ouput not working
+#set terminal epslatex size 3.5,2.62 color colortext
+#set output 'introduction.tex'
+
+#set style data histogram 
+set style fill transparent solid 0.4  noborder
+#set bars fullwidth
+#set title "WR Peer-to-Peer Transparent Clock" 
+set boxwidth 1 relative
+#set grid
+#unset border
+#set datafile separator ","
+set autoscale
+#set xtics rotate out
+#set ytics format "Number of Hits" 
+#set xtics auto
+set xtics 4,.2,7.5
+set xrange [4<*:*<7.5]
+set grid ytics lc rgb "#bbbbbb" lw 2 lt 0
+set grid xtics lc rgb "#bbbbbb" lw 2 lt 0
+set xlabel "PPS offset (nsec)" font "Times-Roman,21"
+set ylabel "Number of Hits x 100" font "Times-Roman,21"
+
+set label "{/Symbol m}=4.39 ns" at 3.82,45 font "Times-Roman,23"
+set label "{/Symbol d^2}=99.33 ps  " at 3.82,43 font "Times-Roman,23"
+
+set label "{/Symbol m}=4.63 ns" at 4.74,32 font "Times-Roman,23"
+set label "{/Symbol d^2}=91.14 ps  " at 4.74,30 font "Times-Roman,23"
+
+set label "{/Symbol m}=5.68 ns" at 5.0,45 font "Times-Roman,23"
+set label "{/Symbol d^2}=87.01 ps  " at 5.0,43 font "Times-Roman,23"
+
+set label "{/Symbol m}=5.92 ns" at 6.05,32 font "Times-Roman,23"
+set label "{/Symbol d^2}=91.03 ps  " at 6.05,30 font "Times-Roman,23"
+
+set label "{/Symbol m}=7.17 ns" at 6.5,45 font "Times-Roman,23"
+set label "{/Symbol d^2}=91.03 ps  " at 6.5,43 font "Times-Roman,23"
+
+#set xtics autofreq
+#plot "F1p2p_100000.txt" using 2:xticlabels(1) with histogram , \
+#    "F1p2p_200000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_300000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_400000.txt" using 2:xticlabels(1) with histogram, "F1p2p_500001.txt" using 2:xticlabels(1) with histogram
+
+#plot "F1p2p_500001.txt" using 2:xticlabels(1) smooth freq  with boxes title "5 WR Switches",\
+#     "F1p2p_400000.txt" using 2:xticlabels(1) smooth freq  with boxes title "4 WR Switches", \
+#     "F1p2p_300000.txt" using 2:xticlabels(1) smooth freq  with boxes title "3 WR Switches", \
+#     "F1p2p_200000.txt" using 2:xticlabels(1) smooth freq  with boxes title "2 WR Switches", \
+#     "F1p2p_100000.txt" using 2:xticlabels(1) smooth freq  with boxes title "1 WR Switch"
+
+
+
+plot "F1p2p_500001.txt"   smooth freq  with boxes title "1 WR Switch",\
+     "F1p2p_200000.txt"   smooth freq  with boxes title "2 WR Switches", \
+     "F1p2p_100000.txt"   smooth freq  with boxes title "3 WR Switches", \
+     "F1p2p_300000.txt"   smooth freq  with boxes title "4 WR Switches", \
+     "F1p2p_400000.txt"   smooth freq  with boxes title "5 WR Switches"
+    
+system "gpicview p2p.png &"

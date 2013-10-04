@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot
+unset colorbox
+#set key outside right top vertical Right noreverse enhanced autotitles nobox
+set key right top vertical Right noreverse enhanced autotitles nobox
+set style fill transparent solid 0.30 noborder
+set title "plot with filledcurve [options]" 
+#unset border
+#set datafile separator ","
+set autoscale
+set ytics format " " 
+set grid
+#set grid xtics lc rgb "#bbbbbb" lw 1 lt 0
+set xtics rotate out
+set xtics autofreq
+#plot "F1no-cal-spec-exploder00000.txt" with filledcurve 
+
+plot "F1p2p_100000.txt" with filledcurve, \
+    "F1p2p_200000.txt" with filledcurve, \
+    "F1p2p_300000.txt" with filledcurve, \
+    "F1p2p_400000.txt" with filledcurve, "F1p2p_500001.txt" with filledcurve
+
+pause -1

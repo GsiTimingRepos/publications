@@ -1,0 +1,27 @@
+#!/usr/bin/gnuplot
+reset
+unset colorbox
+#set key outside right top vertical Right noreverse enhanced autotitles nobox
+set  key autotitles enhanced noreverse nobox
+#set style data histogram 
+set style fill transparent solid 0.4  noborder
+#set bars fullwidth
+set title "plot with filledcurve [options]" 
+set boxwidth 1 relative
+#set grid
+#unset border
+#set datafile separator ","
+set autoscale
+set xtics rotate out
+set ytics format " " 
+set xtics auto
+#set format x "%2.0t"
+set xtics autofreq
+
+set boxwidth 0.2 absolute
+set title "box-and-whisker with median bar and whiskerbars" 
+
+set xrange [ 0.5 : 5 ] noreverse nowriteback
+
+plot 'tc.text' using 1:2:3 with errorbars
+pause -1

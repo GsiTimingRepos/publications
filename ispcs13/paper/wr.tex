@@ -1,0 +1,112 @@
+\section{White Rabbit PTP}
+\label{sec:wr}
+
+%\subsection{White Rabbit Synchronization}
+WR reaches sub-nanosecond synchronization with picosecond jitter, basically, 
+characterizing the asymmetries of the link, and using a clock loopback
+technique for tracking the phase shift between the master reference clock
+signal and the clock signal of the slave. In order to gather and
+accomplish such a measurement WR extends PTP, WRPTP~\cite{biblio:ispcs_m}. 
+\figurename~\ref{fig:wr_ptp} shows the WRPTP flow of messages and the
+integration with standard PTP once is established.
+
+Below is the summary of the steps, measurement and hardware support needed for the 
+WR synchronization between two WR devices. A thorough description is presented 
+in ~\cite{biblio:tomas} and ~\cite{biblio:wrptp}.
+
+\subsubsection{WR Discovery and Syntonization}
+
+A WR clock initiates WRPTP with an announcement message in order to discover
+other WR devices. If a WR device has been discovered, the master will initiate the 
+frequency lock procedure. WRPTP uses SyncE to distribute a common frequency throughout 
+the network, the WR Slaves are frequency locked to the WR Master. 
+
+\subsubsection{Asymmetry Calibration}
+
+Once the slave is locked to the master, the WR devices initiate to calibrate the 
+asymmetries in the common optical link taking in consideration:
+
+\begin{itemize}
+    \item Fixed delays due to transmission circuitry
+    \item Asymmetry of the optical transceivers and PHYs 
+    \item Asymmetry of the propagation delay in the fiber caused by the chromatic dispersion
+\end{itemize}
+
+\subsubsection{Coarse and Fine Delay Measurement}
+\label{sec:delay_ms}
+After the devices are calibrated, a first delay measurement, \textit{Coarse
+Measurement}, is issued using the delay request-respond (DRR) mechanism. 
+The next step towards the synchronization requires the measurement of the phase shift
+between a reference (master) clock signal and the loopback clock signal
+of the slave. For this purpose, WR implements Digital Dual Mixer Time Difference
+(DDMTD) ~\cite{biblio:ddmtd} phase detection. The DDMTD measures the \textit{round trip phase
+shift}, $phase_{mm}$.
+
+With the $phase_{mm}$, the delay round trip, $delay_{mm}$ is calculated. The $phase_{s}$
+is the phase shift of the clock adjustment (see \figurename~\ref{fig:wr_time_stamp})  
+derived from the $offset_{ms}$. Using the $phase_{mm}$ and $phase_{s}$, 
+the timestamps on ingress ports can be enhanced,
+$t_{2p}$ and  $t_{4p}$, using a decision algorithm described in ~\cite{biblio:tomas}.
+Only timestamps on ingress ports need to be enhanced, since they are generated 
+asynchronously to the reference clock domain. The \textit{Fine Delay Measurement}, round trip,
+is calculated as follows, using the enhanced timestamps :
+
+\begin{equation}
+  \label{eq:round_trip}
+    delay_{mm} = (t_{4p} - t_1) - (t_3 - t_{2p})
+\end{equation}
+
+\figurename~\ref{fig:wr_ptp} shows how after the initial WRPTP synchronization, 
+a DRR or peer delay (PD) mechanism produces the timestamps, $t_{1}$, $t_{2p}$,
+$t_{3}$ and $t_{4p}$ (in the case of PD, also
+$t_{5}$ and $t_{6p})$.
+
+\subsubsection{Synchronization}
+In order to finish the synchronization, the offset between both clocks must be
+calculated, $offset_{ms}$. 
+The round trip can be expressed as a function of the  delay master to slave, $\sigma _{ms}$ , slave to
+master $\sigma _{sm}$ and the sum of the fixed delays, $\Delta$ , obtained during the calibration.
+
+\begin{equation}
+  \label{eq:round_trip_2}
+    delay_{mm} = \Delta + \sigma _{ms} + \sigma _{sm}
+\end{equation}
+
+The ratio between single delays is proportional to the asymmetry of the speed of
+the different wavelengths due to the chromatic dispersion in the fiber optic
+link:
+
+\begin{equation}
+    \label{eq:disp}
+    (\alpha-1) = \frac{\sigma_{ms}}{\sigma_{sm}}
+\end{equation}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[scale=0.26]{fig/time_stamps_tc.png}
+\caption{WR Loopback Clock, Phase Detection and Enhanced Time Stamps}
+\label{fig:wr_time_stamp}
+\end{figure}
+
+
+Combining equations (\ref{eq:round_trip}), (\ref{eq:round_trip_2}) and
+(\ref{eq:disp}), the delay master to slave and $offset_{MS}$:
+
+\begin{equation}
+    \label{eq:delayms}
+     delay_{ms} = \frac{1+ \alpha}{2+ \alpha}(delay_{mm} - \Delta)+ \Delta_{txm} + \Delta_{rxs} 
+\end{equation}
+
+\begin{equation}
+    \label{eq:offsetms}
+    offset_{ms} = t_{1} - t_{2p} - delay_{ms}
+\end{equation}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[scale=0.25]{fig/wr_ptp.png}
+\caption{WR PTP Message Flow and PTP}
+\label{fig:wr_ptp}
+\end{figure}
+
+

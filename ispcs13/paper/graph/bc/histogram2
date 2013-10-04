@@ -1,0 +1,82 @@
+#!/usr/bin/gnuplot
+system "rm bc.png"
+reset
+unset colorbox
+#set key outside left top vertical Left noreverse enhanced autotitles nobox
+set  key at 6.1,59 left autotitles enhanced noreverse nobox font "Times-Roman,20" spacing 1.6
+#set  key outside out vert left top autotitles enhanced noreverse nobox font "Times-Roman, 14" spacing 1.4
+set xtics font "Times-Roman, 20" 
+set ytics font "Times-Roman, 16" 
+set y2tics font "Times-Roman, 16" 
+#### PNG output
+set terminal pngcairo size 1500,800 enhanced font 'Verdana,10'
+set output 'bc.png'
+#### Latex ouput not working
+#set terminal epslatex size 3.5,2.62 color colortext
+#set output 'introduction.tex'
+
+#set style data histogram 
+set style fill transparent solid 0.4  noborder
+#set bars fullwidth
+#set title "WR Peer-to-Peer Transparent Clock" 
+set boxwidth 1 relative
+#set grid
+#unset border
+#set datafile separator ","
+set autoscale
+#set xtics rotate out
+#set ytics format "Number of Hits" 
+#set xtics auto
+set xtics 3,.2,7.5
+set xrange [3<*:*<7.5]
+set grid ytics lc rgb "#bbbbbb" lw 2 lt 0
+set grid xtics lc rgb "#bbbbbb" lw 2 lt 0
+set xlabel "PPS offset (nsec)" font "Times-Roman,21"
+set ylabel "Number of Hits" font "Times-Roman,21"
+
+set label "{/Symbol m}=3.57 ns" at 3.10,55 font "Times-Roman,23"
+set label "{/Symbol d^2}=86.86 ps  " at 3.10,53 font "Times-Roman,23"
+
+set label "{/Symbol m}=4.09 ns" at 3.65,46 font "Times-Roman,23"
+set label "{/Symbol d^2}=89.46 ps  " at 3.65,44 font "Times-Roman,23"
+
+set label "{/Symbol m}=4.81 ns" at 4.28,45 font "Times-Roman,23"
+set label "{/Symbol d^2}=91.09 ps  " at 4.28,43 font "Times-Roman,23"
+
+set label "{/Symbol m}=5.18 ns" at 5.3,32 font "Times-Roman,23"
+set label "{/Symbol d^2}=94.80 ps  " at 5.3,30 font "Times-Roman,23"
+
+set label "{/Symbol m}=6.23 ns" at 5.7,46 font "Times-Roman,23"
+set label "{/Symbol d^2}=119.72 ps  " at 5.7,44 font "Times-Roman,23"
+
+#set label "{/Symbol m}=4.39 ns, {/Symbol d^2}=99.33 ps  " at 4.2,59 font "Times-Roman,14"
+#set label "{/Symbol m}=4.63 ns, {/Symbol d^2}=91.14 ps  " at 4.2,57 font "Times-Roman,14"
+#set label "{/Symbol m}=5.68 ns, {/Symbol d^2}=87.01 ps  " at 4.2,55 font "Times-Roman,14"
+#set label "{/Symbol m}=5.92 ns, {/Symbol d^2}=91.03 ps  " at 4.2,52.7 font "Times-Roman,14"
+#set label "{/Symbol m}=7.17 ns, {/Symbol d^2}=92.89 ps  " at 4.2,50.5 font "Times-Roman,14"
+#set xtics autofreq
+#plot "F1p2p_100000.txt" using 2:xticlabels(1) with histogram , \
+#    "F1p2p_200000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_300000.txt" using 2:xticlabels(1) with histogram, \
+#    "F1p2p_400000.txt" using 2:xticlabels(1) with histogram, "F1p2p_500001.txt" using 2:xticlabels(1) with histogram
+
+#plot "F1p2p_500001.txt" using 2:xticlabels(1) smooth freq  with boxes title "5 WR Switches",\
+#     "F1p2p_400000.txt" using 2:xticlabels(1) smooth freq  with boxes title "4 WR Switches", \
+#     "F1p2p_300000.txt" using 2:xticlabels(1) smooth freq  with boxes title "3 WR Switches", \
+#     "F1p2p_200000.txt" using 2:xticlabels(1) smooth freq  with boxes title "2 WR Switches", \
+#     "F1p2p_100000.txt" using 2:xticlabels(1) smooth freq  with boxes title "1 WR Switch"
+
+
+
+plot "F1bc_100000.txt"   smooth freq  with boxes title "1 WR Switch", \
+     "F1bc_200000.txt"   smooth freq  with boxes title "2 WR Switches", \
+     "F1bc_300001.txt"   smooth freq  with boxes title "3 WR Switches", \
+     "F1bc_400000.txt"   smooth freq  with boxes title "4 WR Switches", \
+     "F1bc_500000.txt"   smooth freq  with boxes title "5 WR Switches"
+
+    
+
+system "gpicview bc.png &"
+
+
+#pause -1
