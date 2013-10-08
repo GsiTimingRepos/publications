@@ -1,0 +1,53 @@
+\section{INTRODUCTION}
+
+The GMT triggers and synchronizes accelerator equipment accordingly 
+to the accelerator cycles~\cite{fair_rep}. Cycle lengths range 
+from 20 ms (present UNILAC), several seconds (synchrotrons SIS18 
+and SIS100/300) to several hours (storage rings)~\cite{gmt}. The beam production chain is an important concept in
+accelerator control systems. It describes the production of a beam
+from an ion source through the accelerators to a target. Properties of such a beam production 
+chain include the ion type (from protons to uranium), energy, intensity, focus
+and emittance and other parameters at the final destination. This information is
+conveyed to the GMT, which 
+has an integral view on the tightly synchronized accelerators and beam transfer
+sections. The GMT must take into account the execution of several beam production 
+chains in the accelerator complex at the same time. For each part of the machine, switching 
+between different beam production chains will be possible between cycles, which implies a 
+high degree of true parallel operation.
+
+The GMT is made of an interconnected network of Timing Receiver Nodes (TRN) and
+special nodes so-called Masters. The TRN are devices synchronized to the Timing
+Master, source of time and frequency for all the network, and they are also the
+receivers of timing messages from the Data Master. The interconnection is
+established using WR Switches, which are responsible of the propagation of the
+synchronization and timing messages to the TRN.
+
+In  about  four years,  first  beam will  be  injected  into the  FAIR
+accelerator complex. By then,  the General Machine Timing system
+must support about 2000  Front End Controllers (FEC) with integrated TRN. 
+The main tasks of the GMT are distribution 
+of  timing messages, clocks  and timestamps.  Timing messages  synchronize actions of
+the accelerator in hard real-time on a level of about 1 ns, even if
+components are a few kilometers apart. Clock and timestamps
+distribution, inherently  provided by White  Rabbit PTP, will  be used
+for  correlating  data  acquired  at distinct  places  throughout  the
+facility. 
+
+The GMT  is linked to other  systems.  It must react  with upper bound
+latency  on  external  signals  like interlock  signals~\cite{interlock}  by  executing
+predefined alternatives in the  schedule. All systems connected to the
+timing  system  depend on  it's  high  availability.  Distribution  of
+timing messages, clocks and timestamps  must be guaranteed for commissioning and
+testing even when the accelerator  does not produce beam. As a failure
+in synchronizing equipment  may led to loss of  beam, the distribution
+of timing messages must be robust -  at most one timing messages per year
+may  be lost.  Furthermore, critical  components  of the  GMT must  be
+implemented redundantly.
+
+The  GMT not only  serves for  the operation  of the  FAIR accelerator
+machines. Also Data AcQuisition (DAQ) systems of experiments will link
+to  the  GMT  for   correlating  experimental  data  with  accelerator
+actions. Moreover, a connection to the GMT allows for time stamping of
+data in case of globally triggered DAQ systems, fan-out of time stamps
+for  free running  DAQ systems  and finally  provides  distribution of
+precise synchronous clock signals.

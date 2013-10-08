@@ -1,0 +1,320 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2013.9.20)  2 OCT 2013 19:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**THPPC092.tex
+(./THPPC092.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(./JAC2003.cls
+\dsep=\skip41
+\dwid=\skip42
+\dht=\skip43
+
+Document Class: JAC2003 2011/03/06 Version 1.3
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip44
+\belowcaptionskip=\skip45
+\bibindent=\dimen102
+)
+------------------------------------------------------------------------
+LaTeX2e Class file for Accelerator Conference publication for LaTeX2e users
+ 
+Use the boxit option to draw a box on page showing the correct margins
+ 
+Itemize, Enumerate and Description environments are compact versions
+------------------------------------------------------------------------
+ 
+\titleblockheight=\skip46
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen105
+\lightrulewidth=\dimen106
+\cmidrulewidth=\dimen107
+\belowrulesep=\dimen108
+\belowbottomsep=\dimen109
+\aboverulesep=\dimen110
+\abovetopsep=\dimen111
+\cmidrulesep=\dimen112
+\cmidrulekern=\dimen113
+\defaultaddspace=\dimen114
+\@cmidla=\count88
+\@cmidlb=\count89
+\@aboverulesep=\dimen115
+\@belowrulesep=\dimen116
+\@thisruleclass=\count90
+\@lastruleclass=\count91
+\@thisrulewidth=\dimen117
+) (./THPPC092.aux)
+\openout1 = `THPPC092.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 22.
+
+(/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count92
+\scratchdimen=\dimen118
+\scratchbox=\box26
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count95
+\MPscratchDim=\dimen119
+\MPnumerator=\count96
+\makeMPintoPDFobject=\count97
+\everyMPtoPDFconversion=\toks16
+) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 28.
+
+Overfull \vbox (2.29913pt too high) detected at line 28
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 51.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 51.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+]
+Package epstopdf Info: Source file: <THPPC092f1.eps>
+(epstopdf)                    date: 2013-10-02 17:37:19
+(epstopdf)                    size: 1938886 bytes
+(epstopdf)             Output file: <THPPC092f1-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-10-02 19:00:12
+(epstopdf)                    size: 66531 bytes
+(epstopdf)             Command: <repstopdf --outfile=THPPC092f1-eps-converted-t
+o.pdf THPPC092f1.eps>
+(epstopdf)             \includegraphics on input line 129.
+Package epstopdf Info: Output file is already uptodate.
+
+<THPPC092f1-eps-converted-to.pdf, id=9, 463.7325pt x 511.9125pt>
+File: THPPC092f1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use THPPC092f1-eps-converted-to.pdf>
+Package pdftex.def Info: THPPC092f1-eps-converted-to.pdf used on input line 129
+.
+(pdftex.def)             Requested size: 231.86568pt x 255.95563pt.
+Package epstopdf Info: Source file: <THPPC092f2.eps>
+(epstopdf)                    date: 2013-10-02 17:37:08
+(epstopdf)                    size: 992422 bytes
+(epstopdf)             Output file: <THPPC092f2-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-10-02 19:00:14
+(epstopdf)                    size: 143279 bytes
+(epstopdf)             Command: <repstopdf --outfile=THPPC092f2-eps-converted-t
+o.pdf THPPC092f2.eps>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+
+<THPPC092f2-eps-converted-to.pdf, id=11, 742.775pt x 598.235pt>
+File: THPPC092f2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use THPPC092f2-eps-converted-to.pdf>
+Package pdftex.def Info: THPPC092f2-eps-converted-to.pdf used on input line 197
+.
+(pdftex.def)             Requested size: 245.1165pt x 197.41815pt.
+
+Overfull \hbox (10.38127pt too wide) in paragraph at lines 197--198
+ [][] 
+ []
+
+[2 <./THPPC092f1-eps-converted-to.pdf> <./THPPC092f2-eps-converted-to.pdf>]
+Underfull \hbox (badness 1354) in paragraph at lines 233--237
+[]\OT1/ptm/m/n/10 In the fu-ture the MM will of-fer ad-vance man-age-
+ []
+
+Package epstopdf Info: Source file: <THPPC092f3.eps>
+(epstopdf)                    date: 2013-10-02 17:37:31
+(epstopdf)                    size: 14548974 bytes
+(epstopdf)             Output file: <THPPC092f3-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-10-02 19:00:15
+(epstopdf)                    size: 43598 bytes
+(epstopdf)             Command: <repstopdf --outfile=THPPC092f3-eps-converted-t
+o.pdf THPPC092f3.eps>
+(epstopdf)             \includegraphics on input line 263.
+Package epstopdf Info: Output file is already uptodate.
+<THPPC092f3-eps-converted-to.pdf, id=24, 517.935pt x 381.425pt>
+File: THPPC092f3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use THPPC092f3-eps-converted-to.pdf>
+Package pdftex.def Info: THPPC092f3-eps-converted-to.pdf used on input line 263
+.
+(pdftex.def)             Requested size: 258.96686pt x 190.71202pt.
+
+Overfull \hbox (24.23163pt too wide) in paragraph at lines 263--264
+ [][] 
+ []
+
+[3 <./THPPC092f3-eps-converted-to.pdf>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 341.
+ [4]
+Underfull \hbox (badness 1205) in paragraph at lines 445--457
+[]\OT1/ptm/m/n/10 The tim-ing sys-tems for the pro-ton linac source or
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+
+Overfull \hbox (26.14987pt too wide) in paragraph at lines 526--527
+[]\OT1/ptm/m/n/9 White Rab-bit \OT1/cmtt/m/n/9 http://www.ohwr.org/projects/whi
+te-rabbit\OT1/ptm/m/n/9 . 
+ []
+
+
+Overfull \hbox (31.18079pt too wide) in paragraph at lines 547--549
+\OT1/cmtt/m/n/9 http://www.ohwr.org/projects/white-rabbit/wiki/Switch 
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+[5] (./THPPC092.aux) ) 
+Here is how much of TeX's memory you used:
+ 1659 strings out of 493311
+ 23106 string characters out of 6143650
+ 87232 words of memory out of 5000000
+ 5102 multiletter control sequences out of 15000+600000
+ 20051 words of font info for 41 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,9n,23p,241b,211s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-dis
+t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times
+/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on THPPC092.pdf (5 pages, 327451 bytes).
+PDF statistics:
+ 55 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 34 words of extra memory for PDF output out of 10000 (max. 10000000)
+
